@@ -27,6 +27,9 @@ dependencies = [
 ]
 dynamic = ["version"]
 
+[project.scripts]
+storyverse = "storyverse.cli:main"
+
 [project.urls]
 Homepage = "https://github.com/emingenc/storyverse"
 "Bug Tracker" = "https://github.com/emingenc/storyverse/issues"

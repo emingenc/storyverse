@@ -27,4 +27,9 @@ setup(
     install_requires=[
         "fs>=2.4.13",
     ],
+    entry_points={
+        'console_scripts': [
+            'storyverse=storyverse.cli:main',
+        ],
+    },
 )

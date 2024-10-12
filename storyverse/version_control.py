@@ -5,9 +5,19 @@ from .branch_manager import BranchManager
 
 class StoryVersionControl:
     def __init__(self, root_path):
-        self.content_store = ContentStore(os.path.join(root_path, 'objects'))
-        self.commit_store = CommitStore(os.path.join(root_path, 'objects'))
-        self.branch_manager = BranchManager(root_path)
+        self.root_path = root_path
+        self._initialize()
+
+    def _initialize(self):
+        os.makedirs(os.path.join(self.root_path, 'objects'), exist_ok=True)
+        os.makedirs(os.path.join(self.root_path, 'refs', 'heads'), exist_ok=True)
+        
+        # Create initial branch (e.g., 'main')
+        with open(os.path.join(self.root_path, 'refs', 'heads', 'main'), 'w') as f:
+            f.write('')
+        self.content_store = ContentStore(os.path.join(self.root_path, 'objects'))
+        self.commit_store = CommitStore(os.path.join(self.root_path, 'objects'))
+        self.branch_manager = BranchManager(self.root_path)
 
     def add_story_content(self, content, branch_name, author, message):
         content_hash = self.content_store.add_content(content)
