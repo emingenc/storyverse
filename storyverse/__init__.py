@@ -6,7 +6,7 @@ from .branch_manager import BranchManager
 from .version_control import StoryVersionControl
 from . import cli
 
-__version__ = "0.1.0"
+__version__ = "0.1.1"
 
 __all__ = [
     "ContentStore",

@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup(
     name="storyverse",
-    version="0.1.0",
+    version="0.1.1",
     author="Emin Genc",
     author_email="emingench@gmai.com",
     description="A version control system for interactive, branching time-travel stories",
